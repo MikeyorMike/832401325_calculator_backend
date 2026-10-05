@@ -1,0 +1,10 @@
+# 依赖清单
+#
+# 版本锁定说明：
+#   pydantic 2.12.x 与 FastAPI 0.115.x 是经过验证的稳定组合。
+#   若部署平台使用 Python 3.14，pydantic-core 的预编译轮子可能缺失，
+#   此时请在平台上设置 PYTHON_VERSION=3.12.0（Render 支持该环境变量）。
+
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.12.5

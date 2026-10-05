@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本地部署助手 | 前后端分离计算器</title>
+  <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body>
+<div class="app" style="max-width:820px">
+  <header class="app-header">
+    <div class="app-header__brand">
+      <div class="app-header__logo" aria-hidden="true">🚀</div>
+      <div>
+        <h1 class="app-header__title">一键启动前后端服务</h1>
+        <p class="app-header__subtitle">
+          用于本地演示与截图
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main" style="grid-template-columns:minmax(0,1fr)">
+    <section class="panel">
+      <h2 class="panel__title" style="margin-bottom:14px">操作步骤</h2>
+      <ol class="empty-state" style="text-align:left;line-height:2.1;padding:0 0 0 18px">
+        <li>双击本目录下的 <code>启动.bat</code></li>
+        <li>会弹出两个黑色命令行窗口，分别是后端和前端服务，<strong>不要关闭它们</strong></li>
+        <li>等后端窗口出现 <code>Uvicorn running on http://127.0.0.1:8000</code></li>
+        <li>浏览器自动打开前端页面；若没有自动打开，手动访问
+          <a href="http://127.0.0.1:5500" style="color:var(--accent)">http://127.0.0.1:5500</a></li>
+        <li>页面顶部显示绿点「后端已连接」即成功</li>
+      </ol>
+
+      <div class="tool-panel" style="margin-top:18px">
+        <div class="field">
+          <label>后端接口文档（Swagger）</label>
+          <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener"
+             style="color:var(--accent)">http://127.0.0.1:8000/docs</a>
+        </div>
+        <div class="field">
+          <label>后端健康检查</label>
+          <a href="http://127.0.0.1:8000/api/health" target="_blank" rel="noopener"
+             style="color:var(--accent)">http://127.0.0.1:8000/api/health</a>
+        </div>
+        <div class="field">
+          <label>前端页面</label>
+          <a href="http://127.0.0.1:5500" target="_blank" rel="noopener"
+             style="color:var(--accent)">http://127.0.0.1:5500</a>
+        </div>
+      </div>
+
+      <h2 class="panel__title" style="margin:22px 0 10px">常见问题</h2>
+      <div class="history__list">
+        <div class="history-item">
+          <div class="history-item__main">
+            <div class="history-item__expression">提示「python 不是内部或外部命令」</div>
+            <div class="history-item__meta">
+              <span>未安装 Python 或未加入 PATH。安装 Python 3.11+ 时勾选「Add Python to PATH」</span>
+            </div>
+          </div>
+        </div>
+        <div class="history-item">
+          <div class="history-item__main">
+            <div class="history-item__expression">提示端口被占用</div>
+            <div class="history-item__meta">
+              <span>8000 或 5500 端口已被其他程序占用。关闭占用程序，
+                或修改 <code>启动.bat</code> 里的端口号</span>
+            </div>
+          </div>
+        </div>
+        <div class="history-item">
+          <div class="history-item__main">
+            <div class="history-item__expression">页面提示「后端未连接」</div>
+            <div class="history-item__meta">
+              <span>后端窗口是否还在运行？是否报错？先访问
+                <a href="http://127.0.0.1:8000/api/health" style="color:var(--accent)">健康检查</a>
+                确认后端是否正常</span>
+            </div>
+          </div>
+        </div>
+        <div class="history-item">
+          <div class="history-item__main">
+            <div class="history-item__expression">首次运行需要安装依赖</div>
+            <div class="history-item__meta">
+              <span><code>启动.bat</code> 会自动检测并安装依赖，首次运行请耐心等待 1~2 分钟</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
