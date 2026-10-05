@@ -195,11 +195,12 @@ git push
 | 配置项 | 填什么 |
 | --- | --- |
 | **Branch to deploy** | `main` |
-| **Base directory** | `src`（**重要**，前端源码在 src 子目录） |
+| **Base directory** | **留空**（⚠️ 切勿填 `src`，会与 `netlify.toml` 的 `publish = "src"` 叠加成 `src/src`，报错 `Deploy directory 'src/src' does not exist`） |
 | **Build command** | 留空 |
-| **Publish directory** | `src` 或留空（取决于 Base directory 设置） |
+| **Publish directory** | `src` 或留空（`netlify.toml` 中已指定 `publish = "src"`） |
 
-> 若 Netlify 读取了仓库里的 `netlify.toml`，以上会自动填好，直接点 Deploy 即可。
+> 仓库里的 `netlify.toml` 已声明发布目录为 `src`，并配了一条 `[[redirects]]`
+> 把未知路径回退到 `index.html`。**界面 Base directory 留空即可**，不要重复指定。
 
 5. 点击 **Deploy site**，等待约 30 秒
 6. 得到地址形如 `https://random-name-123.netlify.app`
